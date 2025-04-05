@@ -1,13 +1,13 @@
 {
-  "name": "switch2idea",
-  "displayName": "Switch2IDEA",
-  "description": "Quickly switch between VS Code and IntelliJ IDEA, open current file in IDEA with the same position",
-  "version": "1.0.3",
-  "publisher": "qczone",
+  "name": "open-in-xcode",
+  "displayName": "Open in Xcode",
+  "description": "Open current file in Xcode with the same line",
+  "version": "1.0.0",
+  "publisher": "moderato-app",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qczone/switch2idea"
+    "url": "https://github.com/moderato-app/open-in-xcode"
   },
   "icon": "images/icon.png",
   "engines": {
@@ -18,11 +18,13 @@
     "Programming Languages"
   ],
   "keywords": [
-    "intellij",
-    "idea",
-    "jetbrains",
-    "switch",
-    "open"
+    "xcode",
+    "xed",
+    "apple",
+    "open",
+    "jump",
+    "goto",
+    "go to"
   ],
   "activationEvents": [
     "onStartupFinished"
@@ -31,55 +33,30 @@
   "contributes": {
     "commands": [
       {
-        "command": "Switch2IDEA.openFileInIDEA",
-        "title": "Open File in IDEA"
-      },
-      {
-        "command": "Switch2IDEA.openProjectInIDEA",
-        "title": "Open Project in IDEA"
+        "command": "open-in-xcode.open-in-xcode",
+        "title": "Open in Xcode"
       }
     ],
     "keybindings": [
       {
-        "command": "Switch2IDEA.openFileInIDEA",
-        "key": "alt+shift+o",
-        "mac": "alt+shift+o",
-        "when": "editorTextFocus"
-      },
+        "command": "open-in-xcode.open-in-xcode",
+        "key": "alt alt"
+      }
+    ]
+  },
+  "menus": {
+    "editor/context": [
       {
-        "command": "Switch2IDEA.openProjectInIDEA",
-        "key": "alt+shift+p",
-        "mac": "alt+shift+p"
+        "command": "open-in-xcode.open-in-xcode",
+        "group": "navigation"
       }
     ],
-    "configuration": {
-      "title": "Switch2IDEA",
-      "properties": {
-        "switch2idea.ideaPath": {
-          "type": "string",
-          "default": "",
-          "description": "IDEA executable path"
-        }
+    "explorer/context": [
+      {
+        "command": "open-in-xcode.open-in-xcode",
+        "group": "navigation"
       }
-    },
-    "menus": {
-      "editor/context": [
-        {
-          "command": "Switch2IDEA.openFileInIDEA",
-          "group": "navigation"
-        }
-      ],
-      "explorer/context": [
-        {
-          "command": "Switch2IDEA.openFileInIDEA",
-          "group": "navigation"
-        },
-        {
-          "command": "Switch2IDEA.openProjectInIDEA",
-          "group": "navigation"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
@@ -89,7 +66,7 @@
     "lint": "eslint src",
     "test": "vscode-test",
     "package": "pnpm vsce package --no-dependencies",
-    "publish": "pnpm vsce publish --no-dependencies"
+    "publish": "pnpm vsce publish --no-dependencies --target darwin-x64, darwin-arm64"
   },
   "packageManager": "pnpm@9.6.0",
   "devDependencies": {
@@ -102,6 +79,6 @@
     "typescript": "^5.7.2",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
-    "@vscode/vsce": "^3.2.1"
+    "@vscode/vsce": "^3.3.2"
   }
 }

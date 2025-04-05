@@ -1,30 +1,10 @@
-# 更新日志
+# Changelog
 
-本文档记录 "Switch2IDEA" 扩展的所有重要更新。
+This document records all important updates for the "Open in Xcode" extension.
 
 ## [1.0.0]
 
-### 新增功能
+### New Features
 
-- 快速在 IDEA 中打开当前文件
-- 自动定位到 VS Code 相同的光标位置
-- 右键菜单直接打开文件到 IDEA
-- 一键打开整个项目到 IDEA
-
-## [1.0.1]
-
-### Bug 修复
-
-- 修复 macOS 上可能无法打开 IDEA 的问题
-
-## [1.0.2]
-
-### 代码优化
-
-- 移除多余的快捷键配置
-
-## [1.0.3]
-
-### 代码优化
-
-- 增加对 EPIPE 错误的捕获
+- Open current file in Xcode
+- Open entire project in Xcode

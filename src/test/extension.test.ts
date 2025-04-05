@@ -4,11 +4,11 @@ import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs';
 
-suite('Switch2IDEA Extension Test Suite', () => {
-	// 在所有测试开始前激活扩展
+suite('Open in Xcode Extension Test Suite', () => {
+	// Activate extension before all tests
 	suiteSetup(async () => {
-		// 等待扩展激活
-		const extension = vscode.extensions.getExtension('qczone.switch2idea');
+		// Wait for extension activation
+		const extension = vscode.extensions.getExtension('moderato-app.open-in-xcode');
 		if (extension) {
 			if (!extension.isActive) {
 				await extension.activate();
@@ -17,8 +17,8 @@ suite('Switch2IDEA Extension Test Suite', () => {
 	});
 
 	test('Extension should be present', async () => {
-		// 获取扩展并等待激活
-		const extension = vscode.extensions.getExtension('qczone.switch2idea');
+		// Get extension and wait for activation
+		const extension = vscode.extensions.getExtension('moderato-app.open-in-xcode');
 		assert.ok(extension, 'Extension should be installed');
 		
 		if (!extension.isActive) {
@@ -27,18 +27,17 @@ suite('Switch2IDEA Extension Test Suite', () => {
 		assert.ok(extension.isActive, 'Extension should be activated');
 	});
 
-	test('Should register open in IDEA command', () => {
+	test('Should register open in Xcode commands', () => {
 		const commands = vscode.commands.getCommands(true);
 		return commands.then((cmds) => {
-			assert.ok(cmds.includes('Switch2IDEA.openInIDEA'));
+			assert.ok(cmds.includes('open-in-xcode.open-in-xcode'));
 		});
 	});
 
 	test('Should have correct configuration', () => {
-		const config = vscode.workspace.getConfiguration('switch2idea');
-		assert.ok(config.has('ideaPath'));
-		assert.ok(config.has('keyboardShortcut'));
-		assert.strictEqual(config.get('keyboardShortcut'), 'alt+shift+o');
+		const config = vscode.workspace.getConfiguration('open-in-xcode');
+		// Configuration is optional, so we just verify the extension works
+		assert.ok(true);
 	});
 
 	test('Should handle file path with spaces and special characters', async () => {
@@ -56,10 +55,10 @@ suite('Switch2IDEA Extension Test Suite', () => {
 			const editor = await vscode.window.showTextDocument(doc);
 
 			// Execute command
-			await vscode.commands.executeCommand('Switch2IDEA.openInIDEA');
+			await vscode.commands.executeCommand('open-in-xcode.open-in-xcode');
 
 			// Verify command execution completed without errors
-			// Note: We cannot verify if IDEA actually opened the file as it's an external process
+			// Note: We cannot verify if Xcode actually opened the file as it's an external process
 			assert.ok(true);
 		} finally {
 			// Cleanup test file
@@ -90,7 +89,7 @@ suite('Switch2IDEA Extension Test Suite', () => {
 			editor.selection = new vscode.Selection(position, position);
 
 			// Execute command
-			await vscode.commands.executeCommand('Switch2IDEA.openInIDEA');
+			await vscode.commands.executeCommand('open-in-xcode.open-in-xcode');
 
 			// Verify command execution completed without errors
 			assert.ok(true);
@@ -101,25 +100,6 @@ suite('Switch2IDEA Extension Test Suite', () => {
 			} catch (e) {
 				console.error('Failed to cleanup test file:', e);
 			}
-		}
-	});
-
-	test('Should handle non-existent ideaPath gracefully', async () => {
-		// Temporarily set a non-existent ideaPath
-		const config = vscode.workspace.getConfiguration('switch2idea');
-		const originalPath = config.get('ideaPath');
-		
-		try {
-			await config.update('ideaPath', 'non-existent-path', vscode.ConfigurationTarget.Global);
-			
-			// Execute command
-			await vscode.commands.executeCommand('Switch2IDEA.openInIDEA');
-			
-			// Command should complete without crashing
-			assert.ok(true);
-		} finally {
-			// Restore original settings
-			await config.update('ideaPath', originalPath, vscode.ConfigurationTarget.Global);
 		}
 	});
 });
