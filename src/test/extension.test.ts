@@ -8,7 +8,7 @@ suite('Open in Xcode Extension Test Suite', () => {
 	// Activate extension before all tests
 	suiteSetup(async () => {
 		// Wait for extension activation
-		const extension = vscode.extensions.getExtension('moderato-app.open-in-xcode');
+		const extension = vscode.extensions.getExtension('Moderato.open-file-in-xcode');
 		if (extension) {
 			if (!extension.isActive) {
 				await extension.activate();
@@ -18,7 +18,7 @@ suite('Open in Xcode Extension Test Suite', () => {
 
 	test('Extension should be present', async () => {
 		// Get extension and wait for activation
-		const extension = vscode.extensions.getExtension('moderato-app.open-in-xcode');
+		const extension = vscode.extensions.getExtension('Moderato.open-file-in-xcode');
 		assert.ok(extension, 'Extension should be installed');
 		
 		if (!extension.isActive) {
