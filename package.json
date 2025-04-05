@@ -2,7 +2,7 @@
   "name": "open-file-in-xcode",
   "displayName": "Open in Xcode | Go to Xcode",
   "description": "Open current file in Xcode with the same line",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "Moderato",
   "license": "MIT",
   "repository": {
@@ -65,7 +65,7 @@
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
     "test": "vscode-test",
-    "ci": "pnpm run compile && pnpm run lint && pnpm eslint src && pnpm vscode-test",
+    "ci": "pnpm run compile && pnpm run lint && pnpm eslint src && pnpm vsce package --no-dependencies",
     "package": "pnpm vsce package --no-dependencies",
     "publish": "pnpm vsce publish --no-dependencies --target darwin-x64 --target darwin-arm64"
   },

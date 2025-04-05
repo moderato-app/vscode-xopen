@@ -14,11 +14,12 @@ jobs:
         with:
           version: 9
       - run: pnpm install
-      - name: Publish to Visual Studio Marketplace
-        run: pnpm vsce publish --pat ${{ secrets.VS_MARKETPLACE_TOKEN }} --no-dependencies --target darwin-x64 --target darwin-arm64
+      - run: pnpm run ci
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@release-2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: '*.vsix' 
+          args: '*.vsix'
+      - name: Publish to Visual Studio Marketplace
+        run: pnpm vsce publish --pat ${{ secrets.VS_MARKETPLACE_TOKEN }} --no-dependencies --target darwin-x64 --target darwin-arm64
