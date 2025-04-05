@@ -2,7 +2,7 @@
   "name": "open-file-in-xcode",
   "displayName": "Open in Xcode | Go to Xcode",
   "description": "Open current file in Xcode with the same line",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "Moderato",
   "license": "MIT",
   "repository": {
