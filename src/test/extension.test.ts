@@ -8,7 +8,7 @@ suite('Open in Xcode Extension Test Suite', () => {
 	// Activate extension before all tests
 	suiteSetup(async () => {
 		// Wait for extension activation
-		const extension = vscode.extensions.getExtension('Moderato.open-file-in-xcode');
+		const extension = vscode.extensions.getExtension('moderato-app.xopen');
 		if (extension) {
 			if (!extension.isActive) {
 				await extension.activate();
@@ -18,7 +18,7 @@ suite('Open in Xcode Extension Test Suite', () => {
 
 	test('Extension should be present', async () => {
 		// Get extension and wait for activation
-		const extension = vscode.extensions.getExtension('Moderato.open-file-in-xcode');
+		const extension = vscode.extensions.getExtension('moderato-app.xopen');
 		assert.ok(extension, 'Extension should be installed');
 		
 		if (!extension.isActive) {
@@ -30,14 +30,8 @@ suite('Open in Xcode Extension Test Suite', () => {
 	test('Should register open in Xcode commands', () => {
 		const commands = vscode.commands.getCommands(true);
 		return commands.then((cmds) => {
-			assert.ok(cmds.includes('open-in-xcode.open-in-xcode'));
+			assert.ok(cmds.includes('xopen.open-in-xcode'));
 		});
-	});
-
-	test('Should have correct configuration', () => {
-		const config = vscode.workspace.getConfiguration('open-in-xcode');
-		// Configuration is optional, so we just verify the extension works
-		assert.ok(true);
 	});
 
 	test('Should handle file path with spaces and special characters', async () => {
@@ -55,7 +49,7 @@ suite('Open in Xcode Extension Test Suite', () => {
 			const editor = await vscode.window.showTextDocument(doc);
 
 			// Execute command
-			await vscode.commands.executeCommand('open-in-xcode.open-in-xcode');
+			await vscode.commands.executeCommand('xopen.open-in-xcode');
 
 			// Verify command execution completed without errors
 			// Note: We cannot verify if Xcode actually opened the file as it's an external process
@@ -89,7 +83,7 @@ suite('Open in Xcode Extension Test Suite', () => {
 			editor.selection = new vscode.Selection(position, position);
 
 			// Execute command
-			await vscode.commands.executeCommand('open-in-xcode.open-in-xcode');
+			await vscode.commands.executeCommand('xopen.open-in-xcode');
 
 			// Verify command execution completed without errors
 			assert.ok(true);

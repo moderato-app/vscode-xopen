@@ -1,7 +1,6 @@
 import * as vscode from 'vscode';
 import {exec} from 'child_process';
 import * as os from 'os';
-import * as fs from 'fs';
 
 const xedPath = '/usr/bin/xed';
 
@@ -44,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
     return;
   }
 
-  let openFileDisposable = vscode.commands.registerCommand('open-in-xcode.open-in-xcode', async (uri?: vscode.Uri) => {
+  let openFileDisposable = vscode.commands.registerCommand('xopen.open-in-xcode', async (uri?: vscode.Uri) => {
     if (os.platform() !== 'darwin') {
       vscode.window.showErrorMessage('Xcode is only available on macOS');
       return;

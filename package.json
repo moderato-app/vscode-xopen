@@ -1,13 +1,13 @@
 {
-  "name": "open-file-in-xcode",
-  "displayName": "Open in Xcode | Go to Xcode",
-  "description": "Open current file in Xcode with the same line",
+  "name": "xopen",
+  "displayName": "Xopen",
+  "description": "Open current line in Xcode",
   "version": "1.0.5",
-  "publisher": "Moderato",
+  "publisher": "moderato-app",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/moderato-app/open-in-xcode"
+    "url": "https://github.com/moderato-app/vscode-xopen"
   },
   "icon": "images/icon.png",
   "engines": {
@@ -18,11 +18,12 @@
     "Programming Languages"
   ],
   "keywords": [
+    "Open in Xcode",
     "xcode",
-    "xed",
-    "apple",
     "open",
     "jump",
+    "xed",
+    "apple",
     "goto",
     "go to"
   ],
@@ -33,13 +34,13 @@
   "contributes": {
     "commands": [
       {
-        "command": "open-in-xcode.open-in-xcode",
+        "command": "xopen.open-in-xcode",
         "title": "Open in Xcode"
       }
     ],
     "keybindings": [
       {
-        "command": "open-in-xcode.open-in-xcode",
+        "command": "xopen.open-in-xcode",
         "key": "alt alt"
       }
     ]
@@ -47,13 +48,13 @@
   "menus": {
     "editor/context": [
       {
-        "command": "open-in-xcode.open-in-xcode",
+        "command": "xopen.open-in-xcode",
         "group": "navigation"
       }
     ],
     "explorer/context": [
       {
-        "command": "open-in-xcode.open-in-xcode",
+        "command": "xopen.open-in-xcode",
         "group": "navigation"
       }
     ]
