@@ -1,8 +1,8 @@
 {
   "name": "xopen",
-  "displayName": "Xopen",
+  "displayName": "Xopen: Open in Xcode",
   "description": "Open current line in Xcode",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "publisher": "moderato-app",
   "license": "MIT",
   "repository": {
@@ -19,6 +19,8 @@
   ],
   "keywords": [
     "Open in Xcode",
+    "open in xcode",
+    "open xcode",
     "xcode",
     "open",
     "jump",
