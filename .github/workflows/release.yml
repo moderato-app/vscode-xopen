@@ -1,4 +1,4 @@
-name: Deploy
+name: Release
 
 on:
   release:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  deploy:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,3 +26,8 @@ jobs:
           args: '*.vsix'
       - name: Publish to Visual Studio Marketplace
         run: pnpm vsce publish --pat ${{ secrets.VS_MARKETPLACE_TOKEN }} --no-dependencies --target darwin-x64 --target darwin-arm64
+      - name: Publish to Open VSX Registry
+        uses: HaaLeo/publish-vscode-extension@v2
+        with:
+          dependencies: false
+          pat: ${{ secrets.OPEN_VSX_TOKEN }}
