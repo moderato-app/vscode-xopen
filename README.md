@@ -1,4 +1,4 @@
-# Xopen: A Cursor extension that opens current line in Xcode
+# XOpen: A vscode extension that opens current line in Xcode
 
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/moderato-app.xopen?label=VS%20Marketplace&style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=moderato-app.xopen)
 [![Downloads](https://img.shields.io/visual-studio-marketplace/d/moderato-app.xopen?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=moderato-app.xopen)
