@@ -22,6 +22,22 @@ To change the shortcut, go to `Settings` -> `Keyboard Shortcuts`, search for `op
 2. In Cursor, select `Extensions`
 3. Drag and drop the `.vsix` file
 
+## ❓ Q&A / Troubleshooting
+
+### Xcode Cannot Position to Column
+
+If Xcode opens but cannot position to the correct column, you can try to enable the following permissions:
+
+**1. Accessibility:** `System Settings` → `Privacy & Security` → `Accessibility` → Enable **Cursor** (or **Code**)
+
+<img src="doc/accessibility.png" alt="Accessibility Settings" style="width: 400px;">
+
+**2. Automation:** `System Settings` → `Privacy & Security` → `Automation` → Enable **Xcode** for **Cursor** (or **Code**)
+
+<img src="doc/automation.png" alt="Automation Settings" style="width: 400px;">
+
+**Note:** Restart Cursor/VSCode after enabling permissions.
+
 ## Credits
 
 * [switch2idea](https://github.com/qczone/switch2idea), a Cursor extension that enables smooth switching between Cursor and IDEA.

@@ -1,0 +1,43 @@
+# Development configuration files
+.vscode/**
+.idea/**
+.github/**
+
+# Source code (only compiled files are included in the package)
+src/**
+
+# TypeScript and build configuration
+tsconfig.json
+tsconfig.*.json
+
+# Test files
+src/test/**
+.vscode-test.mjs
+**/*.test.ts
+**/*.test.js
+
+# Development dependencies and tool configuration
+eslint.config.mjs
+.prettierrc*
+.editorconfig
+
+# Package manager files
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+node_modules/**
+
+# Git related
+.gitignore
+.git/**
+
+# Documentation (README.md and CHANGELOG.md are kept for extension marketplace display)
+# README.md and CHANGELOG.md are automatically included
+
+# Other development files
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+doc
