@@ -2,7 +2,7 @@
   "name": "xopen",
   "displayName": "XOpen: Open in Xcode",
   "description": "Open current line in Xcode",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "publisher": "moderato-app",
   "license": "MIT",
   "repository": {
