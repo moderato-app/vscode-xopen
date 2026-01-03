@@ -1,6 +1,6 @@
 {
   "name": "xopen",
-  "displayName": "Xopen: Open in Xcode",
+  "displayName": "XOpen: Open in Xcode",
   "description": "Open current line in Xcode",
   "version": "1.1.1",
   "publisher": "moderato-app",
@@ -34,6 +34,23 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "XOpen",
+      "properties": {
+        "xopen.delay": {
+          "type": "number",
+          "default": 0.1,
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Delay in seconds before moving caret to the specific column position in Xcode"
+        },
+        "xopen.moveToColumn": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to move the caret to the specific column position in Xcode"
+        }
+      }
+    },
     "commands": [
       {
         "command": "xopen.open-in-xcode",

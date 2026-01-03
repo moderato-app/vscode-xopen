@@ -70,12 +70,17 @@ export async function openInXcode(
   log(`Executing command: ${command}`);
   log(`Opening file: ${filePath || 'project'}, line: ${line}, column: ${column}`);
 
+  // Get configuration once
+  const config = vscode.workspace.getConfiguration('xopen');
+  const moveToColumn = config.get<boolean>('moveToColumn', true);
+  const delay = config.get<number>('delay', 0.1);
+
   try {
     await executeCommand(command, outputChannel);
     // Move caret to specific column using AppleScript
-    if (filePath && column > 1) {
+    if (filePath && column > 1 && moveToColumn) {
       log(`Moving caret to column ${column}`);
-      await moveCaretToColumn(column, outputChannel);
+      await moveCaretToColumn(column, delay, outputChannel);
     }
   } catch (error) {
     const err = error as Error;
@@ -88,17 +93,19 @@ export async function openInXcode(
 /**
  * Move caret to a specific column in Xcode using AppleScript
  * @param column The target column (1-based)
+ * @param delay Delay in seconds before moving caret
  * @param outputChannel Optional output channel for logging
  */
 async function moveCaretToColumn(
   column: number,
+  delay: number,
   outputChannel?: vscode.OutputChannel
 ): Promise<void> {
   // AppleScript to move caret to the specified column
   // First move to beginning of line (Cmd+Left), then move right (column - 1) times
   const appleScript = `
     tell application "Xcode" to activate
-    delay 0.6
+    delay ${delay}
     tell application "System Events"
       -- Move to beginning of line (Cmd+Left Arrow)
       key code 123 using {command down}

@@ -30,11 +30,11 @@ If Xcode opens but cannot position to the correct column, you can try to enable 
 
 **1. Accessibility:** `System Settings` → `Privacy & Security` → `Accessibility` → Enable **Cursor** (or **Code**)
 
-<img src="doc/accessibility.png" alt="Accessibility Settings" style="width: 400px;">
+<img src="https://github.com/user-attachments/assets/d7e0f39e-50c9-4a50-9577-a91cef904381" alt="Accessibility Settings" style="width: 400px;">
 
 **2. Automation:** `System Settings` → `Privacy & Security` → `Automation` → Enable **Xcode** for **Cursor** (or **Code**)
 
-<img src="doc/automation.png" alt="Automation Settings" style="width: 400px;">
+<img src="https://github.com/user-attachments/assets/a78de260-c59f-4a7c-b701-c689c5816cf4" alt="Automation Settings" style="width: 400px;">
 
 **Note:** Restart Cursor/VSCode after enabling permissions.
 

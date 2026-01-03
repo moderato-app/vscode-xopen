@@ -4,7 +4,7 @@ import {openInXcode} from './commands/openInXcode';
 
 export function activate(context: vscode.ExtensionContext) {
   // Create output channel for logging inside activate() to handle reactivation properly
-  const outputChannel = vscode.window.createOutputChannel('Xopen');
+  const outputChannel = vscode.window.createOutputChannel('XOpen');
   outputChannel.appendLine('Open in Xcode is now active!');
 
   if (os.platform() !== 'darwin') {
