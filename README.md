@@ -1,42 +1,41 @@
-# XOpen: A vscode extension that opens current line in Xcode
-
 [![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/moderato-app.xopen?label=VS%20Marketplace&style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=moderato-app.xopen)
 [![Downloads](https://img.shields.io/visual-studio-marketplace/d/moderato-app.xopen?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=moderato-app.xopen)
 
-## Shortcut
+# XOpen: A vscode extension that opens current line in Xcode
 
-* Double tap `⌥ Option`
+## Usage
 
-To change the shortcut, go to `Settings` -> `Keyboard Shortcuts`, search for `open in xcode` and change the shortcut.
+Press `⌥ Option` twice
 
-## 🛠️ Installation Guide
+To change the shortcut, go to `Settings` -> `Keyboard Shortcuts` and search for `xopen`.
 
-### Method 1: From Extension Marketplace
+XOpen also works with Cursor and Windsurf. 
+## Installation
 
-1. Click [here](https://marketplace.visualstudio.com/items?itemName=moderato-app.xopen) to install
-2. Search for "open in xcode"
+* [VSCode Extension Marketplace ](https://marketplace.visualstudio.com/items?itemName=moderato-app.xopen) 
+ 
+* [Open VSX Registry](https://open-vsx.org/extension/moderato-app/xopen)
 
-### Method 2: Local Installation
+* [GitHub Releases](https://github.com/moderato-app/vscode-xopen/releases)
+  * Download the latest extension package `.vsix`
+  * In VSCode, select `Extensions`
+  * Drag and drop the `.vsix` file
 
-1. Download the latest extension package `.vsix`
-2. In Cursor, select `Extensions`
-3. Drag and drop the `.vsix` file
-
-## ❓ Q&A / Troubleshooting
+## Q&A / Troubleshooting
 
 ### Xcode Cannot Position to Column
 
 If Xcode opens but cannot position to the correct column, you can try to enable the following permissions:
 
-**1. Accessibility:** `System Settings` → `Privacy & Security` → `Accessibility` → Enable **Cursor** (or **Code**)
+**1. Accessibility:** `System Settings` → `Privacy & Security` → `Accessibility` → Enable **VSCode**
 
 <img src="doc/accessibility.png" alt="Accessibility Settings" style="width: 400px;">
 
-**2. Automation:** `System Settings` → `Privacy & Security` → `Automation` → Enable **Xcode** for **Cursor** (or **Code**)
+**2. Automation:** `System Settings` → `Privacy & Security` → `Automation` → Enable **Xcode** for **VSCode**
 
 <img src="doc/automation.png" alt="Automation Settings" style="width: 400px;">
 
-**Note:** Restart Cursor/VSCode after enabling permissions.
+**Note:** Restart VSCode after enabling permissions.
 
 ## Credits
 
